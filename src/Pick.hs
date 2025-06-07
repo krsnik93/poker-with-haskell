@@ -1,4 +1,4 @@
-module Picking(pickRandomCard) where
+module Pick(pickRandomCard) where
 
 import System.Random
 

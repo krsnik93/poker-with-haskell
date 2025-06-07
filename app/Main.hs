@@ -1,7 +1,7 @@
 module Main where
 
 import qualified Card (suits, ranks, deck)
-import qualified Picking (pickRandomCard)
+import qualified Pick (pickRandomCard)
 
 main :: IO ()
 main = do
@@ -13,5 +13,5 @@ main = do
   putStrLn "Deck:"
   print Card.deck
   print "Picked random card from deck:"
-  let randomCard = Picking.pickRandomCard Card.deck
+  let randomCard = Pick.pickRandomCard Card.deck
   print randomCard
