@@ -5,7 +5,6 @@ import Card(deck, Card(..), Rank(..), Suit(..), Deck)
 
 expectedDeck :: Deck
 expectedDeck = [
-    Card One Spade,Card One Club,Card One Heart,Card One Diamond,
     Card Two Spade,Card Two Club,Card Two Heart,Card Two Diamond,
     Card Three Spade,Card Three Club,Card Three Heart,Card Three Diamond,
     Card Four Spade,Card Four Club,Card Four Heart,Card Four Diamond,
@@ -21,11 +20,20 @@ expectedDeck = [
     Card Ace Spade,Card Ace Club,Card Ace Heart,Card Ace Diamond
     ]
 
-tests :: Test
-tests = TestList
-    [ TestLabel "deck has 52 cards" (TestCase (assertEqual "deck does not have expected length" 52 (length deck))),
+deckTests :: Test
+deckTests = TestList
+    [
+        TestLabel "deck has 52 cards" (TestCase (assertEqual "deck does not have expected length" 52 (length deck))),
         TestLabel "deck has expected cards" (TestCase (assertEqual "deck does not have expected cards" expectedDeck deck))
     ]
 
+tests :: Test
+tests = TestList
+    [
+        TestLabel "addition" (TestCase (assertEqual "basic addition failed" (3 :: Integer) (1 + 2)))
+    ]
+
 main :: IO Counts
-main = runTestTT tests
+main = do
+    _ <- runTestTT deckTests
+    runTestTT tests

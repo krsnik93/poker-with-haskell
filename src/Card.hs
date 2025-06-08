@@ -2,7 +2,7 @@ module Card (Card(..), Deck, Suit(..), Rank(..), deck) where
 
 data Suit = Spade | Club | Heart | Diamond
     deriving (Show, Enum, Eq, Bounded)
-data Rank = One | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
+data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
     deriving (Show, Enum, Eq, Bounded)
 
 data Card = Card Rank Suit
@@ -14,7 +14,7 @@ suits :: [Suit]
 suits = [Spade, Club, Heart, Diamond]
 
 ranks :: [Rank]
-ranks = [One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace]
+ranks = [Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace]
 
 cards :: [Card]
 cards = [Card rank suit | rank <- [minBound ..], suit <- [minBound ..]]
