@@ -1,11 +1,11 @@
-module Card (Card, Deck, suits, ranks, deck) where
+module Card (Card(..), Deck, Suit(..), Rank(..), deck) where
 
 data Suit = Spade | Club | Heart | Diamond
     deriving (Show, Enum, Bounded)
 data Rank = One | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
     deriving (Show, Enum, Bounded)
 
-data Card = Card Suit Rank
+data Card = Card Rank Suit
     deriving (Show)
 
 type Deck = [Card]
