@@ -1,12 +1,12 @@
 module Card (Card(..), Deck, Suit(..), Rank(..), deck) where
 
 data Suit = Spade | Club | Heart | Diamond
-    deriving (Show, Enum, Bounded)
+    deriving (Show, Enum, Eq, Bounded)
 data Rank = One | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
-    deriving (Show, Enum, Bounded)
+    deriving (Show, Enum, Eq, Bounded)
 
 data Card = Card Rank Suit
-    deriving (Show)
+    deriving (Show, Eq)
 
 type Deck = [Card]
 

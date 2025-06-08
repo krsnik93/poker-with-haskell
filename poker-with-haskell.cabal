@@ -131,4 +131,5 @@ test-suite poker-with-haskell-test
     -- Test dependencies.
     build-depends:
         base ^>=4.17.2.1,
-        poker-with-haskell
+        poker-with-haskell,
+        HUnit
