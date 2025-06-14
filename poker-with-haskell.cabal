@@ -73,6 +73,7 @@ library
 
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.17.2.1,
+                      vector-sized,
                       random,
                       random-shuffle
 
@@ -82,6 +83,10 @@ library
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+
+    default-extensions:
+        DataKinds
+        FlexibleContexts
 
 executable poker-with-haskell
     -- Import common warning flags.
@@ -99,6 +104,7 @@ executable poker-with-haskell
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.17.2.1,
+        vector-sized,
         poker-with-haskell
 
     -- Directories containing source files.
