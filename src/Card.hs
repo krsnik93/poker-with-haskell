@@ -1,4 +1,4 @@
-module Card (Card(..), Deck, Suit(..), Rank(..), deck) where
+module Card (Card(..), Suit(..), Rank(..), cards) where
 
 data Suit = Spade | Club | Heart | Diamond
     deriving (Show, Enum, Eq, Bounded)
@@ -8,8 +8,6 @@ data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack 
 data Card = Card Rank Suit
     deriving (Show, Eq)
 
-type Deck = [Card]
-
 suits :: [Suit]
 suits = [Spade, Club, Heart, Diamond]
 
@@ -18,6 +16,3 @@ ranks = [Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
 
 cards :: [Card]
 cards = [Card rank suit | rank <- [minBound ..], suit <- [minBound ..]]
-
-deck :: Deck
-deck = cards

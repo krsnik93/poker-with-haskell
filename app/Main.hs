@@ -1,26 +1,27 @@
 module Main where
 
-import qualified Card (Card(..), Suit(..), Rank(..), deck)
-import qualified Hand (Hand(..))
-import qualified HandRank (determine)
+import Card (Card(..), Suit(..), Rank(..))
+import Hand (Hand(..))
+import Deck(deck)
+import HandRank (determine)
 import qualified Randy (pickCard, shuffle)
 
 main :: IO ()
 main = do
   putStrLn "Hello, Haskell!"
   putStrLn "Deck:"
-  print Card.deck
+  print deck
   print "Random card from deck:"
-  randomCard <- Randy.pickCard Card.deck
+  randomCard <- Randy.pickCard deck
   print randomCard
 
   print "First card in deck before shuffling:"
-  print (Card.deck !! 0)
+  print (deck !! 0)
 
-  shuffledDeck <- Randy.shuffle Card.deck
+  shuffledDeck <- Randy.shuffle deck
   print "First card in deck after shuffling:"
   print (shuffledDeck !! 0)
 
-  let card = Card.Card  Card.Ace Card.Spade
-  let hand = Hand.Hand card card card card card
+  let card = Card  Ace Spade
+  let hand = Hand card card card card card
   print (HandRank.determine(hand))

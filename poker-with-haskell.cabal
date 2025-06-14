@@ -60,6 +60,7 @@ library
     -- Modules exported by the library.
     exposed-modules:
         Card
+        Deck
         Hand
         HandRank
         Randy
@@ -114,7 +115,9 @@ test-suite poker-with-haskell-test
     default-language: Haskell2010
 
     -- Modules included in this executable, other than Main.
-    -- other-modules:
+    other-modules:
+        DeckTest,
+        HandRankTest
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
