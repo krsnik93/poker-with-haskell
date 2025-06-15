@@ -1,6 +1,9 @@
 
 .SILENT:
 
+.PHONY: all clean test
+
+.PHONY: fmt
 fmt: fmt-cabal
 
 fmt-cabal:
