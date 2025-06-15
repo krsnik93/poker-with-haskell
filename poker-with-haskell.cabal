@@ -41,6 +41,7 @@ test-suite poker-with-haskell-test
     main-is:          Main.hs
     hs-source-dirs:   test
     other-modules:
+        CardTest
         DeckTest
         HandRankTest
 
