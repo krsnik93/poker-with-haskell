@@ -3,11 +3,10 @@
 module HandRank (determine, isFlush, isStraight, isStraightFlush) where
 
 import qualified Data.Vector.Sized as V
-import qualified Data.List as L
 import qualified Data.Set as S
 
 import Card (Rank(..), getRank, getSuit)
-import Hand (Hand (..), sortHandByRank)
+import Hand (Hand (..))
 
 data HandRank = HighCard | OnePair | TwoPair | ThreeOfAKind | Straight | Flush | FullHouse | FourOfAKind | StraightFlush
   deriving (Show, Eq, Ord)
@@ -28,9 +27,10 @@ isStraight hand = isRegularStraight hand || isWheelStraight hand
 isRegularStraight :: Hand -> Bool
 isRegularStraight (Hand h) =
   let ranks = V.toList $ V.map getRank h
-      sortedRanks = L.sort ranks
-      ints = map fromEnum sortedRanks
-  in and $ zipWith (\a b -> a + 1 == b) ints (tail ints)
+      rankSet = S.fromList $ map fromEnum ranks
+      minRank = minimum rankSet
+      expectedSet = S.fromList [minRank .. minRank + 4]
+  in rankSet == expectedSet
 
 wheelStraight :: [Rank]
 wheelStraight = [Ace, Two, Three, Four, Five]
