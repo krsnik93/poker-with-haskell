@@ -1,13 +1,12 @@
-module Hand (Hand(..), makeHand) where
-
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeApplications #-}
 
-import qualified Data.Vector.Sized as V
+module Hand (Hand (..), makeHand) where
 
 import Card (Card)
+import qualified Data.Vector.Sized as V
 
 newtype Hand = Hand (V.Vector 5 Card)
   deriving (Show, Eq)

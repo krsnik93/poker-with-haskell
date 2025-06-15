@@ -1,6 +1,6 @@
-module Deck(Deck, deck) where
+module Deck (Deck, deck) where
 
-import Card(Card(..), cards)
+import Card (Card (..), cards)
 
 type Deck = [Card]
 

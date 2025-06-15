@@ -1,8 +1,8 @@
 module Main where
 
-import Card (Card(..), Suit(..), Rank(..))
+import Card (Card (..), Rank (..), Suit (..))
+import Deck (deck)
 import Hand (makeHand)
-import Deck(deck)
 import HandRank (determine)
 import qualified Randy (pickCard, shuffle)
 
@@ -22,6 +22,6 @@ main = do
   print "First card in deck after shuffling:"
   print (shuffledDeck !! 0)
 
-  let card = Card  Ace Spade
+  let card = Card Ace Spade
   let hand = makeHand (card, card, card, card, card)
-  print (HandRank.determine(hand))
+  print (HandRank.determine (hand))

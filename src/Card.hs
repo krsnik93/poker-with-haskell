@@ -1,12 +1,13 @@
-module Card (Card(..), Suit(..), Rank(..), cards, getRank, getSuit) where
+module Card (Card (..), Suit (..), Rank (..), cards, getRank, getSuit) where
 
 data Suit = Spade | Club | Heart | Diamond
-    deriving (Show, Enum, Eq, Bounded)
+  deriving (Show, Enum, Eq, Bounded)
+
 data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
-    deriving (Show, Enum, Eq, Bounded)
+  deriving (Show, Enum, Eq, Bounded)
 
 data Card = Card Rank Suit
-    deriving (Show, Eq)
+  deriving (Show, Eq)
 
 getSuit :: Card -> Suit
 getSuit (Card _ suit) = suit
